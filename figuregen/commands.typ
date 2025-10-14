@@ -24,6 +24,7 @@
   content
 ) = {
   set text(size: fontsize, fill: text-color, top-edge: "ascender", bottom-edge: "descender")
+  set par(leading: 0em)
   let sz = if rotation != 0deg { (size.height, size.width) } else { (size.width, size.height)}
   let shift = if rotation != 0deg { (size.width/2 - size.height/2, size.height/2 - size.width/2) } else { (0pt, 0pt)}
   place(
