@@ -62,7 +62,7 @@ class TypstBackend(Backend):
                 padding = f"(x:{c.padding.width_mm}mm,y:{c.padding.height_mm}mm)"
                 txt = str.replace(c.content, "\\", "\\\\") # escape backslashes
                 txt = str.replace(txt, "\\\\\\\\", "\\n") # legacy convention support for LaTeX style line breaks
-                typst_lines.append(f"text-box({dims},{self._typst_color(c.color)},{c.fontsize}pt,{self._typst_color(c.background_color)},-{c.rotation}deg,{align},{padding},\"{txt}\")")
+                typst_lines.append(f"text-box({dims},{self._typst_color(c.fill_color)},{c.fontsize}pt,{self._typst_color(c.background_color)},-{c.rotation}deg,{align},{padding},\"{txt}\")")
 
             if isinstance(c, RectangleComponent):
                 dash = "dashed" if c.dashed else "solid"

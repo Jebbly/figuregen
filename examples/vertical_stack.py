@@ -38,7 +38,7 @@ def get_error(method, cropbox=None):
 
 def place_label(element, txt, pos='bottom_left'):
     element.set_label(txt, pos, width_mm=7.8, height_mm=2.5, offset_mm=[0.4, 0.4],
-        fontsize=6, bg_color=[20,20,20], txt_color=[255,255,255], txt_padding_mm=0.2)
+        fontsize=6, bg_color=[20,20,20], fill_color=[255,255,255], txt_padding_mm=0.2)
 
 # ---------- Horizontal Figure TOP ----------
 top_cols = len(method_filenames)

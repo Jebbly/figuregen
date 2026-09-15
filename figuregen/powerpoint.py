@@ -133,7 +133,7 @@ class PptxBackend(Backend):
 
                 run = p.add_run()
                 run.text = c.content.replace("\\\\", "\n")
-                run.font.color.rgb = RGBColor(c.color[0], c.color[1], c.color[2])
+                run.font.color.rgb = RGBColor(c.fill_color[0], c.fill_color[1], c.fill_color[2])
                 run.font.size = Pt(c.fontsize)
 
             if isinstance(c, RectangleComponent):

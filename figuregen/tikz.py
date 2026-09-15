@@ -82,7 +82,7 @@ class TikzBackend(Backend):
                 prefix = c.type + "-" + elem_id
                 name = "{" + prefix + "}"
                 fontsize = "{" + f'{c.fontsize}pt' + "}"
-                color = "{" + self._latex_color(c.color) + "}"
+                color = "{" + self._latex_color(c.fill_color) + "}"
                 content = "{" + c.content + "}"
                 rotation = "{" + str(c.rotation) + "}"
                 fill_color = "{" + self._latex_color(c.background_color) + "}"

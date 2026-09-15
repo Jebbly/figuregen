@@ -74,7 +74,7 @@ class HtmlBackend(Backend):
             if isinstance(c, TextComponent):
                 elem_idx = self._prefix + c.type + "-" + elem_id
 
-                color = "color: " + self._html_color(c.color) + "; "
+                color = "color: " + self._html_color(c.fill_color) + "; "
                 fontsize = "font-size: " + f'{c.fontsize}pt' + "; "
                 horz_align = "text-align: " + c.horizontal_alignment + "; "
 

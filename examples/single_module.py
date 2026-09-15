@@ -65,7 +65,7 @@ e4.set_label("bottom center", pos='bottom_center', width_mm=25., height_mm=4.0, 
 e4.set_label("top\\\\right", pos='top_right', width_mm=8., height_mm=7.0, offset_mm=[1.0, 1.0],
                   fontsize=9, bg_color=[255,255,255], txt_padding_mm=0.4)
 e4.set_label("top\\\\left", pos='top_left', width_mm=8., height_mm=7.0, offset_mm=[1.0, 1.0],
-                  fontsize=9, bg_color=colors[-1], txt_color=[255,255,255], txt_padding_mm=1.5)
+                  fontsize=9, bg_color=colors[-1], fill_color=[255,255,255], txt_padding_mm=1.5)
 
 # grid specific titles
 grid.set_title('top', 'Top Title')
