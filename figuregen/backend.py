@@ -32,7 +32,9 @@ class TextComponent(Component):
     content: str
     rotation: float
     fontsize: float
-    color: Sequence[float]
+    strokewidth: float
+    stroke_color: Sequence[float]
+    fill_color: Sequence[float]
     background_color: Sequence[float] | None
     type: str
     horizontal_alignment: str = "center"
@@ -194,7 +196,7 @@ class Backend:
 
         padding = calc.Size(cfg['padding_mm'], cfg['padding_mm'])
 
-        c = TextComponent(bounds, -1, -1, -1, -1, cfg["text"], 0, cfg['fontsize'], cfg['text_color'],
+        c = TextComponent(bounds, -1, -1, -1, -1, cfg["text"], 0, cfg['fontsize'], cfg['strokewidth'], cfg['stroke_color'], cfg['fill_color'],
             cfg['background_color'], "label-" + label_pos, alignment, padding, "top" if is_top else "bottom")
 
         return c
@@ -305,7 +307,7 @@ class Backend:
                     img_size.width_mm, layout.size)
 
                 captions.append(TextComponent(bounds, -1, -1, row_idx, col_idx, txt_content, layout.rotation,
-                    layout.fontsize, layout.text_color, [255, 255, 255], "caption",
+                    layout.fontsize, 0, [0,0,0], layout.text_color, [255, 255, 255], "caption",
                     vertical_alignment=layout.vertical_alignment or "top", horizontal_alignment=layout.horizontal_alignment))
 
         return captions
@@ -326,8 +328,8 @@ class Backend:
             default_align = "top" if direction == 'south' else "bottom"
 
             t = grid.layout.titles[direction]
-            titles.append(TextComponent(bounds, -1, -1, -1, -1, content, t.rotation, t.fontsize,
-                t.text_color, self._compute_bg_colors(t.background_colors, 1)[0], "title-" + direction,
+            titles.append(TextComponent(bounds, -1, -1, -1, -1, content, t.rotation, t.fontsize, 0,
+                [0,0,0], t.text_color, self._compute_bg_colors(t.background_colors, 1)[0], "title-" + direction,
                 vertical_alignment=t.vertical_alignment or default_align, horizontal_alignment=t.horizontal_alignment))
         return titles
 
@@ -357,12 +359,12 @@ class Backend:
                 default_align = "top" if direction == 'south' else "bottom"
 
                 if is_row:
-                    titles.append(TextComponent(bounds, -1, -1, i, -1, txt, t.rotation, t.fontsize,
-                        t.text_color, bg_colors[i], "rowtitle-" + direction,
+                    titles.append(TextComponent(bounds, -1, -1, i, -1, txt, t.rotation, t.fontsize, 0,
+                        [0,0,0], t.text_color, bg_colors[i], "rowtitle-" + direction,
                         vertical_alignment=t.vertical_alignment or default_align, horizontal_alignment=t.horizontal_alignment))
                 else:
-                    titles.append(TextComponent(bounds, -1, -1, -1, i, txt, t.rotation, t.fontsize,
-                        t.text_color, bg_colors[i], "coltitle-" + direction,
+                    titles.append(TextComponent(bounds, -1, -1, -1, i, txt, t.rotation, t.fontsize, 0,
+                        [0,0,0], t.text_color, bg_colors[i], "coltitle-" + direction,
                         vertical_alignment=t.vertical_alignment or default_align, horizontal_alignment=t.horizontal_alignment))
         return titles
 
