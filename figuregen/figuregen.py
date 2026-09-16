@@ -136,7 +136,7 @@ class ElementView:
         return self
 
     def set_label(self, txt_content, pos, width_mm=10., height_mm=3.0, offset_mm=[1.0, 1.0],
-                  fontsize=6, bg_color=None, fill_color=[0,0,0], txt_padding_mm=1.0):
+                  fontsize=6, strokewidth=0, fill_color=[0,0,0], stroke_color=[0,0,0], bg_color=None, txt_padding_mm=1.0):
         '''
             Write text on top of an image.
 
@@ -168,10 +168,10 @@ class ElementView:
         self.elem["label"][pos] = {
             "text": str(txt_content),
             "fontsize": fontsize,
-            "strokewidth": 0,
+            "strokewidth": strokewidth,
             "line_space": 1.2,
-            "stroke_color": [0,0,0],
             "fill_color": fill_color,
+            "stroke_color": stroke_color,
             "background_color": bg_color,
             "width_mm": width_mm,
             "height_mm": height_mm,

@@ -28,7 +28,7 @@ class TikzBackend(Backend):
     @property
     def preamble(self) -> str:
         """ The minimum set of \\usepackage's for the figure to display correctly. """
-        return '\n'.join(["\\usepackage{calc}", "\\usepackage{tikz}"])
+        return '\n'.join(["\\usepackage{calc}", "\\usepackage{tikz}", "\\usepackage{pdfrender}"])
 
     def _sanitize_latex_path(self, path):
         # Assume that pdflatex will be run from the same folder and strip the directory name from the path
@@ -82,10 +82,12 @@ class TikzBackend(Backend):
                 prefix = c.type + "-" + elem_id
                 name = "{" + prefix + "}"
                 fontsize = "{" + f'{c.fontsize}pt' + "}"
-                color = "{" + self._latex_color(c.fill_color) + "}"
+                strokewidth = "{" + f'{c.strokewidth}pt' + "}"
+                fill_color = "{" + self._latex_color(c.fill_color) + "}"
+                stroke_color = "{" + self._latex_color(c.stroke_color) + "}"
+                background_color = "{" + self._latex_color(c.background_color) + "}"
                 content = "{" + c.content + "}"
                 rotation = "{" + str(c.rotation) + "}"
-                fill_color = "{" + self._latex_color(c.background_color) + "}"
 
                 node = "\\maketextnode" if c.rotation % 180 < 20 else "\\maketextnodeflipped"
 
@@ -104,8 +106,8 @@ class TikzBackend(Backend):
                 pad_vert = "{" + str(c.padding.height_mm) + "mm}"
                 pad_horz = "{" + str(c.padding.width_mm) + "mm}"
 
-                tikz_lines.append(node + dims + name + anchor + color + fontsize + fill_color + rotation +
-                    vert_align + horz_align + pad_vert + pad_horz + content)
+                tikz_lines.append(node + dims + name + anchor + rotation + vert_align + horz_align + pad_vert + pad_horz +
+                                  fontsize + strokewidth + fill_color + stroke_color + background_color + content)
 
             if isinstance(c, RectangleComponent):
                 color = "{" + self._latex_color(c.color) + "}"
