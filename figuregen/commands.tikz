@@ -28,30 +28,30 @@
 \newcommand\maketextnode[9]{%
     % We use garbage names because proper ones interfere randomly and unpredictably in a
     % distribution-dependent way with some of the TikZ and LaTeX commands we use below
-    \def\myargA{#1}%
-    \def\myargB{#2}%
-    \def\myargC{#3}%
-    \def\myargD{#4}%
-    \def\myargE{#5}%
-    \def\myargF{#6}%
-    \def\myargG{#7}%
-    \def\myargH{#8}%
-    \def\myargI{#9}%
+    \def\figuregenWidth{#1} % width
+    \def\figuregenHeight{#2} % height
+    \def\figuregenName{#3} % name
+    \def\figuregenAnchor{#4} % anchor
+    \def\figuregenTextColor{#5} % text color
+    \def\figuregenFontSize{#6} % font size
+    \def\figuregenFillColor{#7} % fill color
+    \def\figuregenRotation{#8} % rotation
+    \def\figuregenVerticalAlignment{#9} % vertical alignment 
     \maketextnodecontinued
 }
 \newcommand\maketextnodecontinued[4]{%
-    \ifx\myargG\empty
-    \node[anchor=north west, minimum width=\myargA, minimum height=\myargB, inner sep=0, outer sep=0] (\myargC) at \myargD {};
+    \ifx\figuregenFillColor\empty
+    \node[anchor=north west, minimum width=\figuregenWidth, minimum height=\figuregenHeight, inner sep=0, outer sep=0] (\figuregenName) at \figuregenAnchor {};
     \else
-    \node[anchor=north west, minimum width=\myargA, minimum height=\myargB, inner sep=0, outer sep=0,fill={\myargG}] (\myargC) at \myargD {};
+    \node[anchor=north west, minimum width=\figuregenWidth, minimum height=\figuregenHeight, inner sep=0, outer sep=0,fill={\figuregenFillColor}] (\figuregenName) at \figuregenAnchor {};
     \fi
 
     \begin{scope}
-        \clip (\myargC.south west) rectangle (\myargC.north east);
-        \node[anchor=center, minimum width=\myargA, minimum height=\myargB, rotate=\myargH, text={\myargE},
-            inner sep=0, outer sep=0] at (\myargC.center)
+        \clip (\figuregenName.south west) rectangle (\figuregenName.north east);
+        \node[anchor=center, minimum width=\figuregenWidth, minimum height=\figuregenHeight, rotate=\figuregenRotation, text={\figuregenTextColor},
+            inner sep=0, outer sep=0] at (\figuregenName.center)
         {
-            \begin{minipage}[c][\myargB-#2-#2][\myargI]{\myargA-#3-#3} \fontsize{\myargF}{\myargF} \selectfont #1
+            \begin{minipage}[c][\figuregenHeight-#2-#2][\figuregenVerticalAlignment]{\figuregenWidth-#3-#3} \fontsize{\figuregenFontSize}{\figuregenFontSize} \selectfont #1
                 #4\strut
             \end{minipage}
         };
@@ -64,30 +64,30 @@
 \newcommand\maketextnodeflipped[9]{%
     % We use garbage names because proper ones interfere randomly and unpredictably in a
     % distribution-dependent way with some of the TikZ and LaTeX commands we use below
-    \def\myargA{#1}%
-    \def\myargB{#2}%
-    \def\myargC{#3}%
-    \def\myargD{#4}%
-    \def\myargE{#5}%
-    \def\myargF{#6}%
-    \def\myargG{#7}%
-    \def\myargH{#8}%
-    \def\myargI{#9}%
+    \def\figuregenWidth{#1}%
+    \def\figuregenHeight{#2}%
+    \def\figuregenName{#3}%
+    \def\figuregenAnchor{#4}%
+    \def\figuregenTextColor{#5}%
+    \def\figuregenFontSize{#6}%
+    \def\figuregenFillColor{#7}%
+    \def\figuregenRotation{#8}%
+    \def\figuregenVerticalAlignment{#9}%
     \maketextnodeflippedcontinued
 }
 \newcommand\maketextnodeflippedcontinued[4]{%
-    \ifx\myargG\empty
-    \node[anchor=north west, minimum width=\myargA, minimum height=\myargB, inner sep=0, outer sep=0] (\myargC) at \myargD {};
+    \ifx\figuregenFillColor\empty
+    \node[anchor=north west, minimum width=\figuregenWidth, minimum height=\figuregenHeight, inner sep=0, outer sep=0] (\figuregenName) at \figuregenAnchor {};
     \else
-    \node[anchor=north west, minimum width=\myargA, minimum height=\myargB, inner sep=0, outer sep=0,fill={\myargG}] (\myargC) at \myargD {};
+    \node[anchor=north west, minimum width=\figuregenWidth, minimum height=\figuregenHeight, inner sep=0, outer sep=0,fill={\figuregenFillColor}] (\figuregenName) at \figuregenAnchor {};
     \fi
 
     \begin{scope}
-        \clip (\myargC.south west) rectangle (\myargC.north east);
-        \node[anchor=center, minimum width=\myargA, minimum height=\myargB, rotate=\myargH, text={\myargE},
-            inner sep=0, outer sep=0] at (\myargC.center)
+        \clip (\figuregenName.south west) rectangle (\figuregenName.north east);
+        \node[anchor=center, minimum width=\figuregenWidth, minimum height=\figuregenHeight, rotate=\figuregenRotation, text={\figuregenTextColor},
+            inner sep=0, outer sep=0] at (\figuregenName.center)
         {
-            \begin{minipage}[c][\myargA-#3-#3][\myargI]{\myargB-#2-#2} \fontsize{\myargF}{\myargF} \selectfont #1
+            \begin{minipage}[c][\figuregenWidth-#3-#3][\figuregenVerticalAlignment]{\figuregenHeight-#2-#2} \fontsize{\figuregenFontSize}{\figuregenFontSize} \selectfont #1
                 #4\strut
             \end{minipage}
         };
