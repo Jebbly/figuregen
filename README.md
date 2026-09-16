@@ -1,16 +1,11 @@
 # Figure Generator
 
-This is an awesome figure generator. It generates figures in pdf-, html- and pptx-format.
-The following image shows the output of one of our test files ("tests/pool.py"):
-![](multi-module.png)
+[figuregen](https://github.com/Mira-13/figure-gen) is an awesome figure generator created by Mira Niemann and Pascal Grittmann. 
 
-This tool might help not only to create final figures, but also to analyze images faster: We offer a bunch of error metrics that allows not only to compare images visually but also mathematically.
+This fork modifies the pdf backend to add support for outlining text, which is sometimes more useful than highlighting the entire text block. Check out ``examples\vertical_stack.py`` for an example.
 
-Why did we create a figure generator?
+Support is not implemented for the other backends, but contributions are welcome.
 
-In rendering research, it is quite common to create figures of "comparison"-type. Meaning, that we start with a set of generated images, that needs to be compared. Often, one rendered scene is not enough, therefore, we need several comparison figures - preferably in a similar or same style as the other created figures.
-
-We support _grids_ (images that are grid-like arranged) and simple _line-plotting_. To get a further understanding what _grids_ are, you might want to have a look at our tutorial ([Tutorial.ipynb](Tutorial.ipynb)).
 
 ## Dependencies
 
