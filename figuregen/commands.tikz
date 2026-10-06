@@ -62,8 +62,9 @@
                 inner sep=0, outer sep=0] at (\figuregenName.center)
             {
                 \begin{minipage}[c][\figuregenHeight-\figuregenVerticalPadding-\figuregenVerticalPadding][\figuregenVerticalAlignment]{\figuregenWidth-\figuregenHorizontalPadding-\figuregenHorizontalPadding} 
+                    \figuregenHorizontalAlignment
                     \fontsize{\figuregenFontSize}{\figuregenFontSize} \selectfont
-                    \textpdfrender{TextRenderingMode=Stroke, StrokeColor={\figuregenStrokeColor}, LineWidth=\figuregenStrokeWidth}{\figuregenHorizontalAlignment \figuregenContent\strut}
+                    \textpdfrender{TextRenderingMode=Stroke, StrokeColor={\figuregenStrokeColor}, LineWidth=\figuregenStrokeWidth}{\figuregenContent\strut}
                 \end{minipage}
             };
         }
@@ -73,8 +74,9 @@
             inner sep=0, outer sep=0] at (\figuregenName.center)
         {
             \begin{minipage}[c][\figuregenHeight-\figuregenVerticalPadding-\figuregenVerticalPadding][\figuregenVerticalAlignment]{\figuregenWidth-\figuregenHorizontalPadding-\figuregenHorizontalPadding} 
+                \figuregenHorizontalAlignment
                 \fontsize{\figuregenFontSize}{\figuregenFontSize} \selectfont
-                \textpdfrender{TextRenderingMode=Fill, FillColor={\figuregenFillColor}}{\figuregenHorizontalAlignment \figuregenContent\strut}
+                \textpdfrender{TextRenderingMode=Fill, FillColor={\figuregenFillColor}}{\figuregenContent\strut}
             \end{minipage}
         };
     \end{scope}
@@ -120,8 +122,9 @@
                 inner sep=0, outer sep=0] at (\figuregenName.center)
             {
                 \begin{minipage}[c][\figuregenHeight-\figuregenVerticalPadding-\figuregenVerticalPadding][\figuregenVerticalAlignment]{\figuregenWidth-\figuregenHorizontalPadding-\figuregenHorizontalPadding} 
+                    \figuregenHorizontalAlignment
                     \fontsize{\figuregenFontSize}{\figuregenFontSize} \selectfont
-                    \textpdfrender{TextRenderingMode=Stroke, StrokeColor={\figuregenStrokeColor}, LineWidth=\figuregenStrokeWidth}{\figuregenHorizontalAlignment \figuregenContent\strut}
+                    \textpdfrender{TextRenderingMode=Stroke, StrokeColor={\figuregenStrokeColor}, LineWidth=\figuregenStrokeWidth}{\figuregenContent\strut}
                 \end{minipage}
             };
         }
@@ -131,8 +134,9 @@
             inner sep=0, outer sep=0] at (\figuregenName.center)
         {
             \begin{minipage}[c][\figuregenHeight-\figuregenVerticalPadding-\figuregenVerticalPadding][\figuregenVerticalAlignment]{\figuregenWidth-\figuregenHorizontalPadding-\figuregenHorizontalPadding} 
+                \figuregenHorizontalAlignment
                 \fontsize{\figuregenFontSize}{\figuregenFontSize} \selectfont
-                \textpdfrender{TextRenderingMode=Fill, FillColor={\figuregenFillColor}}{\figuregenHorizontalAlignment \figuregenContent\strut}
+                \textpdfrender{TextRenderingMode=Fill, FillColor={\figuregenFillColor}}{\figuregenContent\strut}
             \end{minipage}
         };
     \end{scope}
